@@ -1,0 +1,35 @@
+Q1) (a)Create a table Customer whose fields are customer_id, name, city, dob, phone no
+(b) insert 5 tuples and set customer id as primary key at time of creating table
+(c) find customer_name who lives in dehradun
+(d) find customer_name who lives in dehradun and his customer id is 124
+(e) find customer_name who lives dehadun or customer id is 124
+(f) find customer_name who lives in any city except dehradun
+(g) find customer_name who lives in  dehradun,roorkee, haridwar
+(h) find customer_name who lives in any city except ddun, rrorkee
+(i) find the customer name and city whose customer id lies in range 124 to 128
+
+
+
+CREATE TABLE Customer(
+	Customer_ID int PRIMARY KEY,
+	name varchar(20),
+	City varchar(20),
+	DOB date,
+	phone_no int
+)
+// desc for displaying primary key
+
+INSERT INTO Customer VALUES(1, 'arin','dehradun',date '2002-07-01',1234567891);
+INSERT INTO Customer VALUES(2, 'rahul','haridwar',date '2002-07-03',0931284171);
+INSERT INTO Customer VALUES(3, 'rohan','bihar',date '2002-07-08',9281739171);
+INSERT INTO Customer VALUES(4, 'payal','dehradun',date '2002-02-01',1839371831);
+INSERT INTO Customer VALUES(5, 'neha','delhi',date '2002-04-01',9381371891);
+INSERT INTO Customer VALUES(124, 'rohit','dehradun',date '2002-01-11',8231937181);
+INSERT INTO Customer VALUES(123, 'akshay','roorkee',date '2002-01-11',8231937181);
+
+(c) SELECT name FROM Customer WHERE City = 'dehradun'
+(d) SELECT name FROM Customer WHERE City = 'dehradun' AND Customer_id = 124
+(e) SELECT name FROM Customer WHERE Customer_id = 124 OR City = 'dehradun'
+(f) SELECT name FROM Customer WHERE NOT City = 'dehradun'
+(h) SELECT name FROM Customer WHERE NOT City in ('dehradun','roorkee')
+(i) SELECT name,city FROM Customer WHERE Customer_id BETWEEN 124 AND 128
