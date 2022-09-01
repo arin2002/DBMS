@@ -7,8 +7,8 @@ Q1) (a)Create a table Customer whose fields are customer_id, name, city, dob, ph
 (g) find customer_name who lives in  dehradun,roorkee, haridwar
 (h) find customer_name who lives in any city except ddun, rrorkee
 (i) find the customer name and city whose customer id lies in range 124 to 128
-
-
+(j) remove the information of customer whose customer id is 124
+(h) update city of customer id = 231 to delhi
 
 CREATE TABLE Customer(
 	Customer_ID int PRIMARY KEY,
@@ -25,7 +25,8 @@ INSERT INTO Customer VALUES(3, 'rohan','bihar',date '2002-07-08',9281739171);
 INSERT INTO Customer VALUES(4, 'payal','dehradun',date '2002-02-01',1839371831);
 INSERT INTO Customer VALUES(5, 'neha','delhi',date '2002-04-01',9381371891);
 INSERT INTO Customer VALUES(124, 'rohit','dehradun',date '2002-01-11',8231937181);
-INSERT INTO Customer VALUES(123, 'akshay','roorkee',date '2002-01-11',8231937181);
+INSERT INTO Customer VALUES(142, 'akshay','roorkee',date '2002-01-11',8231937181);
+iNSERT INTO Customer VALUES(231, 'paras','dehradun',date '2002-01-11',8231937182);
 
 (c) SELECT name FROM Customer WHERE City = 'dehradun'
 (d) SELECT name FROM Customer WHERE City = 'dehradun' AND Customer_id = 124
@@ -33,3 +34,20 @@ INSERT INTO Customer VALUES(123, 'akshay','roorkee',date '2002-01-11',8231937181
 (f) SELECT name FROM Customer WHERE NOT City = 'dehradun'
 (h) SELECT name FROM Customer WHERE NOT City in ('dehradun','roorkee')
 (i) SELECT name,city FROM Customer WHERE Customer_id BETWEEN 124 AND 128
+
+// WHERE is for comdition
+delete - DELETE FROM TABLE_NAME WHERE
+this help in removing existing record
+
+(j) DELETE FROM Customer WHERE Customer_id = 124
+
+update - to change value of existing record
+UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;
+
+
+(h) UPDATE Customer SET City = 'delhi' where Customer_id = 231
+
+aggregate function - 5 types of these
+max, min, avg, count, sum
+
+SELECT MAX/MIN/COUNT/AVG/SUM(Customer_id) FROM CUSTOMER
