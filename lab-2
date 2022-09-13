@@ -1,0 +1,89 @@
+CREATE TABLE employee (emp_id int, emp_name varchar(20), city varchar(2), dob date, salary int)
+
+insert into employee values(1,'arin','dehradun','13/oct/2002',100000);
+insert into employee values(2,'rahul','haridwar','02/jan/2002',25000);
+insert into employee values(3,'aman','delhi','12/feb/2002',40000);
+insert into employee values(4,'ishan','dehradun','13/mar/2004',30000);
+insert into employee values(5,'ayush','meerut','30/apr/2002',25000);
+insert into employee values(6,'rohit','45000','24/sep/2002',45000);
+insert into employee values(7,'anushk','44000','12/jun/2002',44000);
+
+
+
+-- find 2nd highest salary of employee
+SELECT MAX(SALARY) FROM employee WHERE SALARY < (SELECT MAX(SALARY) FROM Employee);
+SELECT MAX(SALARY) FROM employee WHERE SALARY <> (SELECT MAX(SALARY) FROM Employee);
+SELECT MAX(SALARY) FROM employee WHERE SALARY != (SELECT MAX(SALARY) FROM Employee);
+
+-- select id,name,city,salary of 2nd highest
+select emp_id,emp_name,city,salary from employee where salary =(SELECT MAX(SALARY) FROM employee WHERE SALARY < (SELECT MAX(SALARY) FROM Employee));
+
+
+-- find the employee name and city who have greater than average salary of all employees
+select emp_name,city from employee where salary > (select avg(salary) from employee);
+
+-- add a new field pan card number in the employee table
+alter table employee add pan_card varchar(20)
+
+-- add pancard to them
+
+update employee
+set pan_card = '21312asdd'
+where emp_id = 1;
+
+update employee
+set pan_card = '21saddsd'
+where emp_id = 2;
+
+update employee
+set pan_card = 'sfsa23sfs'
+where emp_id = 3;
+
+update employee
+set pan_card = 'ada23as'
+where emp_id = 4;
+
+update employee
+set pan_card = 'adsf23f'
+where emp_id = 5;
+
+update employee
+set pan_card = 'afsf334a2'
+where emp_id = 6;
+
+update employee
+set pan_card = 'ssfsdg23332'
+where emp_id = 7;
+
+-- some modifications
+update employee
+set city = 'kolkata'
+where emp_id = 6;
+
+update employee
+set city = 'naintal'
+where emp_id = 7;
+
+select * from employee
+
+
+-- add primary key to emp_id
+alter table employee add primary key(emp_id);
+
+-- to remove primary key
+alter table employee drop primary key
+
+--repeat one row
+insert into employee values(1,'arin','dehradun','13/oct/2002',100000,'21312asdd');
+
+-- set emp_id and emp_name both primary key matlb dono ka combination
+alter table employee add primary key(emp_id,emp_name);
+-- this should give error
+
+
+-- delete this duplicate row only
+
+
+-- order by asc/desc
+select * from employee
+order by salary desc
