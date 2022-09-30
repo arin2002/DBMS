@@ -1,0 +1,64 @@
+--creating table
+
+create table student(
+    s_id int primary key,
+    s_name varchar(20),
+    sec varchar(2),
+    branch varchar(20),
+    fee int,
+    dob date
+);
+
+--insert
+
+insert into student values(1,'Arin','A','CSE', 25000, '02/sep/2002');
+insert into student values(2,'rachit','C','CSE', 45000, '23/jun/2002');
+insert into student values(3,'dhanjay','I','CSE', 55000, '30/aug/2001');
+insert into student values(4,'ragul','D','CSE', 30000, '14/nov/2004');
+insert into student values(5,'deepak','A','CSE', 25000, '24/oct/2001');
+insert into student values(6,'aditya','I','CSE', 26000, '19/sep/2002');
+insert into student values(7,'rahul','E','CSE', 18000, '08/jan/2003');
+insert into student values(8,'anushk','F','CSE', 31000, '03/feb/2002');
+insert into student values(9,'geeta','E','CSE', 45000, '27/marc/2001');
+insert into student values(10,'shubham','H','ML', 75000, '12/jun/2001');
+insert into student values(11,'slaman','D','ML', 42000, '25/aug/2002');
+insert into student values(12,'rohanpreet','E','ML', 12000, '12/may/2002');
+insert into student values(13,'isha','C','F', 15000, '25/dec/2003');
+insert into student values(14,'amandeep','A','IT', 35000, '17/jun/2002');
+insert into student values(15,'ayushi','B','IT', 53000, '19/dec/2001');
+
+--delete column dob
+alter table student drop column DOB;
+
+--delete column dob
+alter table student drop column DOB;
+
+-- to update column after deleting
+update student set DOB = '02/sep/2002' where s_id = 1;
+
+-- max fee
+select max(fee) from student;
+
+ -- dep name and fee according to branch
+select branch,max(fee) from student group by branch;
+
+ -- dep name and fee according to branch but aagar isme s_name daal de aur branch na ho to error dega
+select s_name,max(fee) from student group by branch;
+
+-- dep name and fee according to branch but under a condition
+select branch,max(fee) from student where fee < 30000 group by branch;
+
+-- another method
+select s_id,max(fee) from student group by s_id having max(fee)>20000;
+
+-- display name of dept having max fee
+select branch,fee from student where fee = (select max(fee) from student);
+
+-- to create a virtual table under some condition or without from multiple table
+create view v1 as select s_id, s_name,fee from student;
+
+-- to update a view
+create or replace view v1 as select s_name,branch,fee from student;
+
+-- to delete view
+drop view v1;
