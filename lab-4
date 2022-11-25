@@ -1,0 +1,54 @@
+create table college(
+    cName varchar2(10),
+    state varchar2(10),
+    enrollment int
+);
+
+create table student(
+    sID int,
+    sName varchar2(10),
+    GPA number(2,1),
+    sizeHS int,
+    DoB date
+);
+
+create table Apply(
+    sID int,
+    cName varchar2(10),
+    major varchar2(20),
+    decision char
+);
+
+
+insert into college values ('Arin','Uttarakhand', 1);
+insert into college values ('Nikhil','Delhi', 2);
+insert into college values ('Rachit','UttarPradesh', 3);
+insert into college values ('Priya','Haryana', 4);
+insert into college values ('Vaibhav','Goa', 5);
+insert into college values ('Prabhkar','Goa', 6);
+insert into college values ('Priyanshu','Delhi', 7);
+insert into college values ('Sahil','Uttarakhand', 8);
+
+insert into student values (20021882,'Arin',4.4, 1001,'02-sep-2002');
+insert into student values (20021883,'Nikhil',3.32, 2201,'02-feb-2003');
+insert into student values (20021884,'Rachit',2.9,500,'11-jun-2001');
+insert into student values (20021885,'Priya',3.5, 4000,'04-mar-2002');
+insert into student values (20021886,'Vaibhav',4.2,2341,'10-jul-2001');
+
+
+insert into Apply values (20021882,'B.Tech','CSE','A');
+insert into Apply values (20021883,'BCA','IT','D');
+insert into Apply values (20021884,'B.Tech','CSE','D');
+insert into Apply values (20021885,'BSC','Maths','A');
+insert into Apply values (20021886,'MSC','Bio','A');
+
+
+a) select sName,DoB from Student;
+
+b) select sName from student where Gpa > 3.7
+
+c) select sName from student where sizeHS >= 1000 AND DoB >= '31-Dec-1996';
+
+d) select sName from student where GPA >= 2.9 AND GPA <= 3.9;
+
+e)
